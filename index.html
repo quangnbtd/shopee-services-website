@@ -750,7 +750,41 @@
                 <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
                 <p class="text-gray-600 max-w-3xl mx-auto">Chúng tôi cung cấp nhiều gói dịch vụ với mức giá đa dạng phù hợp với nhu cầu và ngân sách của shop bạn.</p>
             </div>
-            
+            <div class="flex justify-center mb-6">
+       <div class="arrow-container" style="font-size: 32px; font-weight: bold;">
+         <span class="arrow-right arrow-1">&gt;</span>
+         <span class="arrow-right arrow-2">&gt;</span>
+         <span class="arrow-right arrow-3">&gt;</span>
+       </div>
+       <style>
+         .arrow-container {
+           display: flex;
+           margin-left: 20px;
+           color: #ff5722;
+         }
+         .arrow-right {
+           margin-right: 2px;
+           opacity: 0;
+         }
+         .arrow-1 {
+           animation: arrow-appear 1.5s infinite;
+           animation-delay: 0s;
+         }
+         .arrow-2 {
+           animation: arrow-appear 1.5s infinite;
+           animation-delay: 0.2s;
+         }
+         .arrow-3 {
+           animation: arrow-appear 1.5s infinite;
+           animation-delay: 0.4s;
+         }
+         @keyframes arrow-appear {
+           0% { opacity: 0; }
+           50% { opacity: 1; }
+           100% { opacity: 0; }
+         }
+       </style>
+      </div>
             <!-- Pricing Tabs -->
             <div class="pricing-tabs" data-aos="fade-up">
                 <div class="pricing-tab active" data-tab="tab1">1. Buff Đơn - Shop Mall</div>
