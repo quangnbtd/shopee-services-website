@@ -1,0 +1,1820 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VuQuangEcom - Dịch Vụ Thương Mại Điện Tử Shopee</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <style>
+        :root {
+            --primary: #FF5722;
+            --secondary: #1A237E;
+            --background: #F5F5F5;
+            --accent: #FFC107;
+            --white: #FFFFFF;
+            --gray: #666666;
+            --light-gray: #F5F5F5;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            background-color: var(--background);
+            scroll-behavior: smooth;
+        }
+        
+        .primary-bg {
+            background-color: var(--primary);
+        }
+        
+        .secondary-bg {
+            background-color: var(--secondary);
+        }
+        
+        .accent-bg {
+            background-color: var(--accent);
+        }
+        
+        .primary-text {
+            color: var(--primary);
+        }
+        
+        .secondary-text {
+            color: var(--secondary);
+        }
+        
+        .accent-text {
+            color: var(--accent);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #E64A19;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #0D1859;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--secondary);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-accent:hover {
+            background-color: #FFA000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .package-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .package-header {
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+        
+        .package-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .package-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .package-feature i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .animation-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            border-left: 4px solid var(--primary);
+            transform: translateX(5px);
+        }
+
+        .number-box {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .timeline {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .testimonial-card {
+            position: relative;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-card::before {
+            content: '\201C';
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            font-size: 60px;
+            color: var(--primary);
+            opacity: 0.3;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 15px;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question i.fa-chevron-down {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px 0;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-info-item i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        /* Modern Header and Navigation */
+        .modern-header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .modern-nav ul {
+            display: flex;
+            gap: 0;
+        }
+        
+        .modern-nav li {
+            position: relative;
+        }
+        
+        .modern-nav a {
+            display: block;
+            padding: 25px 20px;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .modern-nav a:hover {
+            color: var(--primary);
+        }
+        
+        .modern-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .modern-nav a:hover::after {
+            width: 80%;
+        }
+        
+        /* Tab Styles for Pricing */
+        .pricing-tabs {
+            display: flex;
+            overflow-x: auto;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .pricing-tabs::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        
+        .pricing-tab {
+            padding: 12px 20px;
+            background-color: #f5f5f5;
+            color: #333;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+            margin-right: 2px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .pricing-tab:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .pricing-tab.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .pricing-content {
+            display: none;
+        }
+        
+        .pricing-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Floating Zalo Button */
+        .zalo-float {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #0068ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 999;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .zalo-float:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 104, 255, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(0, 104, 255, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 104, 255, 0);
+            }
+        }
+        
+        /* Animation classes */
+        .slide-up {
+            animation: slideUp 0.6s ease forwards;
+        }
+        
+        .slide-right {
+            animation: slideRight 0.6s ease forwards;
+        }
+        
+        .slide-left {
+            animation: slideLeft 0.6s ease forwards;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .scale-in {
+            animation: scaleIn 0.5s ease forwards;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes slideRight {
+            from { transform: translateX(-30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideLeft {
+            from { transform: translateX(30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .rotating {
+            animation: rotating 10s linear infinite;
+        }
+        
+        @keyframes rotating {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .bounce {
+            animation: bounce 2s ease infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(1, 1fr) !important;
+            }
+            
+            .modern-nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 10px;
+                display: none;
+            }
+            
+            .modern-nav.active {
+                display: block;
+            }
+            
+            .modern-nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .modern-nav a {
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .modern-nav a::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Zalo Button -->
+    <a href="https://zalo.me/84386473757" target="_blank" class="zalo-float">
+        <img src="https://cdn.jsdelivr.net/gh/hieu-nvdata/seo-image@main/2023/06/15/zalo-icon.png" alt="Zalo" width="40" height="40">
+    </a>
+
+    <!-- Header with Modern Navigation -->
+    <header class="modern-header">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center py-3">
+                <div class="text-2xl font-bold primary-text mr-2">
+                    <i class="fas fa-shopping-bag mr-2"></i>VuQuangEcom
+                </div>
+                <div class="text-xs text-gray-500">Dịch vụ Thương Mại Điện Tử Hàng Đầu</div>
+            </div>
+            <nav class="modern-nav hidden md:block">
+                <ul>
+                    <li><a href="#home" class="hover:text-orange-500 transition-all">Trang Chủ</a></li>
+                    <li><a href="#about" class="hover:text-orange-500 transition-all">Giới Thiệu</a></li>
+                    <li><a href="#services" class="hover:text-orange-500 transition-all">Dịch Vụ</a></li>
+                    <li><a href="#prices" class="hover:text-orange-500 transition-all">Bảng Giá</a></li>
+                    <li><a href="#faq" class="hover:text-orange-500 transition-all">FAQ</a></li>
+                    <li><a href="#contact" class="hover:text-orange-500 transition-all">Liên Hệ</a></li>
+                </ul>
+            </nav>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-500 hover:text-primary-500 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <nav id="mobile-menu" class="modern-nav md:hidden">
+        <ul>
+            <li><a href="#home" class="hover:text-orange-500 transition-all">Trang Chủ</a></li>
+            <li><a href="#about" class="hover:text-orange-500 transition-all">Giới Thiệu</a></li>
+            <li><a href="#services" class="hover:text-orange-500 transition-all">Dịch Vụ</a></li>
+            <li><a href="#prices" class="hover:text-orange-500 transition-all">Bảng Giá</a></li>
+            <li><a href="#faq" class="hover:text-orange-500 transition-all">FAQ</a></li>
+            <li><a href="#contact" class="hover:text-orange-500 transition-all">Liên Hệ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-12 md:py-20 primary-bg relative">
+        <div class="container mx-auto px-4 flex flex-wrap items-center">
+            <div class="w-full lg:w-1/2 text-white mb-10 lg:mb-0" data-aos="fade-right" data-aos-duration="1000">
+                <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-6">Tăng Doanh Số & Đánh Giá Cho Shop Shopee Của Bạn</h1>
+                <p class="text-lg mb-8">Chúng tôi cung cấp các giải pháp chuyên nghiệp giúp nâng cao hiệu suất kinh doanh trên Shopee với các gói dịch vụ đa dạng phù hợp với mọi nhu cầu.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#services" class="btn-accent scale-in">Xem Dịch Vụ</a>
+                    <a href="#contact" class="btn-secondary scale-in">Liên Hệ Ngay</a>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
+                <div class="animation-container">
+                    <img src="https://cdn.jsdelivr.net/gh/hieu-nvdata/seo-image@main/2023/06/14/shopee-hero.png" alt="Hero Image" class="rounded-lg shadow-xl floating" style="max-width: 90%;">
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,224C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Về Chúng Tôi</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">VuQuangEcom là đơn vị tiên phong trong lĩnh vực cung cấp dịch vụ hỗ trợ cho người bán trên sàn thương mại điện tử Shopee. Với kinh nghiệm nhiều năm, chúng tôi tự hào mang đến các giải pháp hiệu quả giúp nâng cao hiệu suất kinh doanh cho đối tác.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="text-center p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="inline-block p-4 rounded-full mb-4 primary-bg">
+                        <i class="fas fa-award text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Chất Lượng Đảm Bảo</h3>
+                    <p class="text-gray-600">Chúng tôi cam kết cung cấp dịch vụ chất lượng cao với bảo hành 90 ngày.</p>
+                </div>
+                
+                <div class="text-center p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="inline-block p-4 rounded-full mb-4 primary-bg">
+                        <i class="fas fa-user-shield text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">An Toàn & Bảo Mật</h3>
+                    <p class="text-gray-600">Phương pháp thực hiện an toàn, bảo mật thông tin khách hàng là ưu tiên hàng đầu của chúng tôi.</p>
+                </div>
+                
+                <div class="text-center p-6 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="inline-block p-4 rounded-full mb-4 primary-bg">
+                        <i class="fas fa-headset text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Hỗ Trợ 24/7</h3>
+                    <p class="text-gray-600">Đội ngũ chuyên viên hỗ trợ khách hàng luôn sẵn sàng giúp đỡ bạn mọi lúc mọi nơi.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16">
+                <div class="flex flex-wrap items-center">
+                    <div class="w-full md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+                        <h3 class="text-2xl font-bold mb-4 primary-text">Tại Sao Chọn Chúng Tôi?</h3>
+                        <div class="timeline">
+                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                                <h4 class="font-semibold mb-2">Kinh Nghiệm Lâu Năm</h4>
+                                <p class="text-gray-600">Chúng tôi đã hỗ trợ thành công hàng nghìn shop trên Shopee tăng hiệu suất kinh doanh.</p>
+                            </div>
+                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                                <h4 class="font-semibold mb-2">Phương Pháp An Toàn</h4>
+                                <p class="text-gray-600">Sử dụng các phương pháp an toàn, tuân thủ quy định của Shopee để tránh rủi ro cho shop của bạn.</p>
+                            </div>
+                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                                <h4 class="font-semibold mb-2">Dịch Vụ Toàn Diện</h4>
+                                <p class="text-gray-600">Cung cấp đầy đủ các dịch vụ từ tăng đơn, đánh giá đến xử lý lỗi và lên Mall.</p>
+                            </div>
+                            <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                                <h4 class="font-semibold mb-2">Cam Kết Kết Quả</h4>
+                                <p class="text-gray-600">Chúng tôi cam kết hoàn tiền nếu không đạt được kết quả như cam kết ban đầu.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 flex justify-center" data-aos="fade-left">
+                        <img src="https://cdn.jsdelivr.net/gh/hieu-nvdata/seo-image@main/2023/06/14/shopee-about.png" alt="Why Choose Us" class="rounded-lg shadow-lg bounce" style="max-width: 80%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Dịch Vụ Của Chúng Tôi</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Chúng tôi cung cấp đa dạng các dịch vụ hỗ trợ shop trên sàn Shopee, từ tăng đơn hàng, đánh giá đến xử lý các vấn đề phức tạp.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="number-box">1</div>
+                        <h3 class="text-xl font-semibold">Buff Đơn & Đánh Giá</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Tăng lượt bán và đánh giá 5 sao cho shop của bạn, giúp tăng xếp hạng và thu hút khách hàng mới.</p>
+                    <a href="#prices" class="inline-block text-orange-500 hover:text-orange-700 font-medium" onclick="showTab('tab1')">
+                        Xem chi tiết <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="number-box">2</div>
+                        <h3 class="text-xl font-semibold">Lên Shopee Mall</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Hỗ trợ đưa shop của bạn lên Shopee Mall để tăng độ uy tín và khả năng cạnh tranh.</p>
+                    <a href="#prices" class="inline-block text-orange-500 hover:text-orange-700 font-medium" onclick="showTab('tab8')">
+                        Xem chi tiết <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="number-box">3</div>
+                        <h3 class="text-xl font-semibold">Xử Lý Lỗi Shopee</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Hỗ trợ xử lý các lỗi vi phạm, mở khóa shop và khôi phục sản phẩm bị xóa.</p>
+                    <a href="#prices" class="inline-block text-orange-500 hover:text-orange-700 font-medium" onclick="showTab('tab9')">
+                        Xem chi tiết <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center mb-4">
+                        <div class="number-box">4</div>
+                        <h3 class="text-xl font-semibold">Treo Live Shopee</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Dịch vụ treo live giúp tăng lượt tiếp cận và tương tác với khách hàng tiềm năng.</p>
+                    <a href="#prices" class="inline-block text-orange-500 hover:text-orange-700 font-medium" onclick="showTab('tab10')">
+                        Xem chi tiết <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex items-center mb-4">
+                        <div class="number-box">5</div>
+                        <h3 class="text-xl font-semibold">Xây Dựng Shop</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Thiết kế và xây dựng shop từ A-Z, tối ưu hóa cho việc bán hàng hiệu quả.</p>
+                    <a href="#prices" class="inline-block text-orange-500 hover:text-orange-700 font-medium" onclick="showTab('tab11')">
+                        Xem chi tiết <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="service-card bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay="600">
+                    <div class="flex items-center mb-4">
+                        <div class="number-box">6</div>
+                        <h3 class="text-xl font-semibold">Trang Trí Shop</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Thiết kế banner, logo và ảnh sản phẩm chuyên nghiệp giúp shop thu hút khách hàng.</p>
+                    <a href="#prices" class="inline-block text-orange-500 hover:text-orange-700 font-medium" onclick="showTab('tab12')">
+                        Xem chi tiết <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Details Section with Tabs -->
+    <section id="prices" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Bảng Giá Dịch Vụ</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Chúng tôi cung cấp nhiều gói dịch vụ với mức giá đa dạng phù hợp với nhu cầu và ngân sách của shop bạn.</p>
+            </div>
+            
+            <!-- Pricing Tabs -->
+            <div class="pricing-tabs" data-aos="fade-up">
+                <div class="pricing-tab active" data-tab="tab1">1. Buff Đơn - Shop Mall</div>
+                <div class="pricing-tab" data-tab="tab2">2. Buff Đơn S01-S03</div>
+                <div class="pricing-tab" data-tab="tab3">3. Buff Đơn S04-S06</div>
+                <div class="pricing-tab" data-tab="tab4">4. Buff Đơn & Đánh Giá</div>
+                <div class="pricing-tab" data-tab="tab5">5. Gói Tháng Shop Thường</div>
+                <div class="pricing-tab" data-tab="tab6">6. Gói Tháng Shop Mall</div>
+                <div class="pricing-tab" data-tab="tab7">7. Dịch Vụ Hỗ Trợ Shop</div>
+                <div class="pricing-tab" data-tab="tab8">8. Lên Shopee Mall</div>
+                <div class="pricing-tab" data-tab="tab9">9. Xử Lý Lỗi Shopee</div>
+                <div class="pricing-tab" data-tab="tab10">10. Treo Live Shopee</div>
+                <div class="pricing-tab" data-tab="tab11">11. Xây Shop</div>
+                <div class="pricing-tab" data-tab="tab12">12. Trang Trí Shop</div>
+            </div>
+            
+            <!-- Tab Content 1: Buff Đơn - Shop Mall -->
+            <div id="tab1" class="pricing-content active">
+                <h3 class="text-2xl font-bold mb-6 primary-text">1. Bảng Báo Giá Buff Đơn - Shop Mall (Bảo Hành Mall)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI PREMIUM</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">1.869.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 300 lượt bán</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 60 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 5 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Hoàn thành trong 4-6 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card relative" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute top-0 right-0 bg-yellow-500 text-white py-1 px-4 text-sm font-semibold">POPULAR</div>
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI ELITE</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">2.969.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 1000 lượt bán</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 200 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 5-10 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Hoàn thành trong 7-10 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI VIP ULTIMATE</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">4.399.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 1500 lượt bán</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 300 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 5-15 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Hoàn thành trong 10-15 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab Content 2: Buff Đơn S01-S03 -->
+            <div id="tab2" class="pricing-content">
+                <h3 class="text-2xl font-bold mb-6 primary-text">2. Bảng Báo Giá Buff Đơn - Shop Thường (Gói S01-S03)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI STARTER</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">549.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 250 lượt bán</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 25 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 5-10 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Hoàn thành trong 5 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card relative" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute top-0 right-0 bg-yellow-500 text-white py-1 px-4 text-sm font-semibold">POPULAR</div>
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI GROWTH</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">989.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 500 lượt bán</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 50 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 5-10 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Hoàn thành trong 7-10 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI PROFESSIONAL</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">1.869.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 1000 lượt bán</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 100 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 5-10 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Hoàn thành trong 10 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab Content 3: Buff Đơn S04-S06 -->
+            <div id="tab3" class="pricing-content">
+                <h3 class="text-2xl font-bold mb-6 primary-text">3. Bảng Báo Giá Buff Đơn - Shop Thường (Gói S04-S06)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI PLATINUM</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">4.399.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 2500 lượt bán</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 250 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 5-15 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Hoàn thành trong 15 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card relative" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute top-0 right-0 bg-yellow-500 text-white py-1 px-4 text-sm font-semibold">POPULAR</div>
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI DIAMOND</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">8.579.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 5000 lượt bán</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 500 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 5-20 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Hoàn thành trong 20 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI ROYAL SUPREME</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">16.499.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 10000 lượt bán</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 1000 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 5-20 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Hoàn thành trong 20 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab Content 4: Buff Đơn & Đánh Giá -->
+            <div id="tab4" class="pricing-content">
+                <h3 class="text-2xl font-bold mb-6 primary-text">4. Bảng Báo Giá Buff Đơn - Shop Thường (Gói Lượt Bán và Đánh Giá)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI SALES BOOSTER PRO</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">2.750.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 2500 lượt bán</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 60-100 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 5 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Hoàn thành trong 7 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI SALES MASTER ELITE</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">4.950.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 5000 lượt bán</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 150-200 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 5 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Hoàn thành trong 20 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI PERFECT REVIEWS</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">879.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 200 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 5-10 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Hoàn thành trong 20 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab Content 5: Gói Tháng Shop Thường -->
+            <div id="tab5" class="pricing-content">
+                <h3 class="text-2xl font-bold mb-6 primary-text">5. Bảng Báo Giá Buff Đơn - Gói Tháng Shop Thường</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI MONTHLY BOOST</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">2.199.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 600 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 10 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Đặt đơn trong vòng 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card relative" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute top-0 right-0 bg-yellow-500 text-white py-1 px-4 text-sm font-semibold">POPULAR</div>
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI PREMIUM MONTHLY</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">3.299.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 1000 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 10 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Đặt đơn trong vòng 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI SPECIAL QUARTERLY</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">1.319.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 400 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 10 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Đặt đơn trong vòng 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Shop sử dụng gói từ 3 tháng</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab Content 6: Gói Tháng Shop Mall -->
+            <div id="tab6" class="pricing-content">
+                <h3 class="text-2xl font-bold mb-6 primary-text">6. Bảng Báo Giá Buff Đơn - Gói Tháng Shop Mall</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="package-card" data-aos="fade-up">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">GÓI MALL ELITE PACKAGE</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">2.639.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Tăng 250 đánh giá 5 sao</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Chia đều cho 5 sản phẩm</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Đặt đơn trong vòng 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Bảo hành 30 ngày</div>
+                                <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Chưa bao gồm COD và phí ship</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab Content 7: Dịch Vụ Hỗ Trợ Shop -->
+            <div id="tab7" class="pricing-content">
+                <h3 class="text-2xl font-bold mb-6 primary-text">7. Bảng Báo Giá - Dịch Vụ Hỗ Trợ Shop</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">MỞ KHÓA SHOP, KHÔI PHỤC SP BỊ XÓA</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">từ 4.400.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Giá: từ 4.400K đến 11.000K</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Các lỗi như: F02, lạm dụng mã giảm giá, chửi khách, hàng giả hàng nhái...</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Liên Hệ Tư Vấn</a>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">SHOP YÊU THÍCH</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">từ 2.200.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Thời gian hoàn thành: 7 ngày</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">CHECK SĐT KHÁCH HÀNG</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">28.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Giá: 28K/1 đơn</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> 1.8M/100 đơn</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                    
+                    <div class="package-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="package-header">
+                            <h4 class="text-xl font-bold mb-2">BUFF FOLLOW</h4>
+                        </div>
+                        <div class="p-6">
+                            <div class="package-price mb-4">154.000 VNĐ</div>
+                            <div class="package-features">
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Giá: 154K/1K FL</div>
+                                <div class="package-feature"><i class="fas fa-check-circle"></i> Đồng giá 132K/1K FL (từ 10K FL)</div>
+                            </div>
+                            <a href="#contact" class="btn-primary w-full mt-6 inline-block text-center">Đăng Ký Ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab Content 8: Lên Shopee Mall -->
+            <div id="tab8" class="pricing-content">
+                <h3 class="text-2xl font-bold mb-6 primary-text">8. Bảng Báo Giá - Lên Shopee Mall</h3>
+                <div class="bg-white p-6 rounded-lg shadow-sm" data-aos="fade-up">
+                    <div class="package-price mb-4">3.299.000 VNĐ / 1 shop</div>
+                    <div class="package-price mb-4">5.500.000 VNĐ / 2 shop</div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-2">VuQuangEcom hỗ trợ làm:</h4>
+                        <div class="package-feature"><i class="fas fa-check-circle"></i> Giấy đăng ký kinh doanh: 1.650.000 VNĐ</div>
+                        <div class="package-feature"><i class="fas fa-check-circle"></i> Giấy đăng ký thương hiệu: 3.080.000 VNĐ</div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="package-feature"><i class="fas fa-check-circle"></i> Thời gian lên MALL nhanh chóng: 3-5 ngày</div>
+                        <div class="package-feature"><i class="fas fa-exclamation-circle text-yellow-500"></i> Shop có nhu cầu lên MALL không cần giấy tờ thì ib mình nhé: giá từ 3.300K - 8.800K</div>
+                        <div class="package-feature"><i class="fas fa-info-circle text-blue-500"></i> (CÓ TUYỂN CTV TÌM KHÁCH LÊN MALL CHIẾT KHẤU CAO)</div>
+                    </div>
+                    
+                    <a href="#contact" class="btn-primary mt-6 inline-block">Liên Hệ Tư Vấn</a>
+                </div>
+            </div>
+            
+            <!-- Tab Content 9: Xử Lý Lỗi Shopee -->
+            <div id="tab9" class="pricing-content">
+                <h3 class="text-2xl font-bold mb-6 primary-text">9. Bảng Báo Giá Xử Lý Lỗi Shopee</h3>
+                <div class="overflow-x-auto" data-aos="fade-up">
+                    <table class="w-full bg-white rounded-lg shadow-sm">
+                        <thead>
+                            <tr>
+                                <th>VI PHẠM</th>
+                                <th>GIÁ</th>
+                                <th>THỜI GIAN HOÀN THÀNH</th>
+                                <th>HÀNH ĐỘNG</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GIAO DỊCH NGOÀI</td>
+                                <td>TỪ 3.300K/1 SP<br>TỪ 7.700K/1 SHOP</td>
+                                <td>3-5 NGÀY<br>7-15 NGÀY</td>
+                                <td><a href="#contact" class="btn-primary text-sm py-2 px-4">Liên Hệ</a></td>
+                            </tr>
+                            <tr>
+                                <td>XIN PHÍ PHẠT MALL</td>
+                                <td>TỪ 6.600K/1 LẦN PHẠT<br>11.000.000 VNĐ</td>
+                                <td>5-7 NGÀY</td>
+                                <td><a href="#contact" class="btn-primary text-sm py-2 px-4">Liên Hệ</a></td>
+                            </tr>
+                            <tr>
+                                <td>F02</td>
+                                <td>TỪ 8.800K/1 SHOP</td>
+                                <td>7-15 NGÀY</td>
+                                <td><a href="#contact" class="btn-primary text-sm py-2 px-4">Liên Hệ</a></td>
+                            </tr>
+                            <tr>
+                                <td>HÀNG GIẢ HÀNG NHÁI</td>
+                                <td>TỪ 4.400K/1 SP</td>
+                                <td>7-15 NGÀY</td>
+                                <td><a href="#contact" class="btn-primary text-sm py-2 px-4">Liên Hệ</a></td>
+                            </tr>
+                            <tr>
+                                <td>CÁC LỖI KHÁC</td>
+                                <td>IB</td>
+                                <td>IB</td>
+                                <td><a href="#contact" class="btn-primary text-sm py-2 px-4">Liên Hệ</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Tab Content 10: Treo Live Shopee -->
+            <div id="tab10" class="pricing-content">
+                <h3 class="text-2xl font-bold mb-6 primary-text">10. Bảng Báo Giá Treo Live Shopee</h3>
+                <div class="overflow-x-auto" data-aos="fade-up">
+                    <table class="w-full bg-white rounded-lg shadow-sm">
+                        <thead>
+                            <tr>
+                                <th>GÓI DỊCH VỤ</th>
+                                <th>GIÁ</th>
+                                <th>THỜI GIAN TREO LIVE</th>
+                                <th>HÀNH ĐỘNG</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GÓI 1<br>(shop không cần cung cấp video phát live)</td>
+                                <td>7.699.000 VNĐ</td>
+                                <td>30 ngày<br>Mỗi ngày 20 tiếng</td>
+                                <td><a href="#contact" class="btn-primary text-sm py-2 px-4">Đăng Ký</a></td>
+                            </tr>
+                            <tr>
+                                <td>GÓI 2<br>(shop tự cung cấp video phát live)</td>
+                                <td>6.599.000 VNĐ</td>
+                                <td>30 ngày<br>Mỗi ngày 20 tiếng</td>
+                                <td><a href="#contact" class="btn-primary text-sm py-2 px-4">Đăng Ký</a></td>
+                            </tr>
+                            <tr>
+                                <td>GÓI 3<br>(shop không cần cung cấp video phát live)</td>
+                                <td>4.950.000 VNĐ</td>
+                                <td>30 ngày<br>Mỗi ngày 10 tiếng</td>
+                                <td><a href="#contact" class="btn-primary text-sm py-2 px-4">Đăng Ký</a></td>
+                            </tr>
+                            <tr>
+                                <td>GÓI 4<br>(shop tự cung cấp video phát live)</td>
+                                <td>3.850.000 VNĐ</td>
+                                <td>30 ngày<br>Mỗi ngày 10 tiếng</td>
+                                <td><a href="#contact" class="btn-primary text-sm py-2 px-4">Đăng Ký</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-6" data-aos="fade-up">
+                    <p class="font-bold">TẶNG NGAY 10 NGÀY TRẢI NGHIỆM TREO LIVE MIỄN PHÍ ĐỐI VỚI GÓI 1 VÀ 2</p>
+                </div>
+            </div>
+            
+            <!-- Tab Content 11: Xây Shop -->
+            <div id="tab11" class="pricing-content">
+                <h3 class="text-2xl font-bold mb-6 primary-text">11. Bảng Báo Giá Xây Shop</h3>
+                <div class="overflow-x-auto" data-aos="fade-up">
+                    <table class="w-full bg-white rounded-lg shadow-sm">
+                        <thead>
+                            <tr>
+                                <th>GÓI TRẢI NGHIỆM<br>2.090.000 VNĐ</th>
+                                <th>GÓI X1<br>3.299.000 VNĐ</th>
+                                <th>GÓI X2<br>4.950.000 VNĐ</th>
+                                <th>GÓI VIP<br>13.200.000 VNĐ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Đăng sản phẩm thủ công chuẩn SEO cho 20 sản phẩm</td>
+                                <td>Đăng sản phẩm thủ công chuẩn SEO cho 30 sản phẩm</td>
+                                <td>Đăng sản phẩm thủ công chuẩn SEO cho 50 sản phẩm</td>
+                                <td>Đăng sản phẩm thủ công chuẩn SEO cho 100 sản phẩm</td>
+                            </tr>
+                            <tr>
+                                <td>Thiết kế ảnh bìa sản phẩm và tăng kèm banner shop</td>
+                                <td>Thiết kế ảnh bìa sản phẩm và tăng kèm banner shop</td>
+                                <td>Thiết kế ảnh bìa sản phẩm và tăng kèm banner shop</td>
+                                <td>Thiết kế ảnh bìa sản phẩm và tăng kèm banner shop</td>
+                            </tr>
+                            <tr>
+                                <td>Tối ưu tên và mô tả sản phẩm</td>
+                                <td>Tối ưu tên và mô tả sản phẩm</td>
+                                <td>Tối ưu tên và mô tả sản phẩm</td>
+                                <td>Tối ưu tên và mô tả sản phẩm</td>
+                            </tr>
+                            <tr>
+                                <td>Tăng 500 lượt bán và 50 đánh giá (chia đều cho 10 SP)</td>
+                                <td>Tăng 1000 lượt bán và 100 đánh giá (chia đều cho 10 SP)</td>
+                                <td>Tăng 2000 lượt bán và 200 đánh giá (chia đều cho 10 SP)</td>
+                                <td>Tăng 5000 lượt bán và 500 đánh giá (chia đều cho 20 SP)</td>
+                            </tr>
+                            <tr>
+                                <td>Tăng 1k lượt follow shop</td>
+                                <td>Tăng 1k lượt follow shop</td>
+                                <td>Tăng 1k lượt follow shop</td>
+                                <td>Tăng 1k lượt follow shop</td>
+                            </tr>
+                            <tr>
+                                <td>Tìm từ khóa và setup chiến dịch quảng cáo cho 5 sản phẩm chính</td>
+                                <td>Tìm từ khóa và setup chiến dịch quảng cáo cho 5 sản phẩm chính</td>
+                                <td>Tìm từ khóa và setup chiến dịch quảng cáo cho 5 sản phẩm chính</td>
+                                <td>Tìm từ khóa và setup chiến dịch quảng cáo cho 5 sản phẩm chính</td>
+                            </tr>
+                            <tr>
+                                <td><a href="#contact" class="btn-primary text-sm py-2 px-4 w-full inline-block text-center">Đăng Ký</a></td>
+                                <td><a href="#contact" class="btn-primary text-sm py-2 px-4 w-full inline-block text-center">Đăng Ký</a></td>
+                                <td><a href="#contact" class="btn-primary text-sm py-2 px-4 w-full inline-block text-center">Đăng Ký</a></td>
+                                <td><a href="#contact" class="btn-primary text-sm py-2 px-4 w-full inline-block text-center">Đăng Ký</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Tab Content 12: Trang Trí Shop -->
+            <div id="tab12" class="pricing-content">
+                <h3 class="text-2xl font-bold mb-6 primary-text">12. Bảng Báo Giá - Trang Trí Shop</h3>
+                <div class="bg-white p-6 rounded-lg shadow-sm" data-aos="fade-up">
+                    <h4 class="text-xl font-bold mb-4">TRANG TRÍ SHOP</h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <div class="package-feature mb-3"><i class="fas fa-check-circle"></i> Trang trí banner shop: 550.000 VNĐ</div>
+                            <div class="package-feature mb-3"><i class="fas fa-check-circle"></i> Thiết kế logo: 550.000 VNĐ</div>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-semibold mb-3">Trang trí banner shop + Thiết kế ảnh bìa sản phẩm:</h5>
+                            <div class="package-feature mb-2"><i class="fas fa-check-circle"></i> 30 sản phẩm: 1.100.000 VNĐ</div>
+                            <div class="package-feature mb-2"><i class="fas fa-check-circle"></i> 50 sản phẩm: 1.650.000 VNĐ</div>
+                            <div class="package-feature mb-2"><i class="fas fa-check-circle"></i> 100 sản phẩm: 3.189.000 VNĐ</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn-primary mt-6 inline-block">Liên Hệ Tư Vấn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section with Real Vietnamese People -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Khách Hàng Nói Gì Về Chúng Tôi</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Hàng nghìn shop đã sử dụng dịch vụ của chúng tôi và đạt được kết quả tuyệt vời.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <img src="https://cdn.jsdelivr.net/gh/hieu-nvdata/seo-image@main/2023/06/14/vietnamese-man-1.jpg" alt="Nguyễn Minh Tuấn" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Nguyễn Minh Tuấn</h4>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Tôi đã sử dụng gói ELITE để tăng đơn cho shop Mall của mình và kết quả thật đáng kinh ngạc. Lượt bán tăng vọt, doanh thu tăng 30% chỉ sau 1 tháng. Đội ngũ hỗ trợ rất chuyên nghiệp và nhiệt tình."</p>
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <img src="https://cdn.jsdelivr.net/gh/hieu-nvdata/seo-image@main/2023/06/14/vietnamese-woman-1.jpg" alt="Phạm Thị Hương" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Phạm Thị Hương</h4>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Shop của tôi bị khóa do vi phạm F02, may mắn được bạn bè giới thiệu dịch vụ xử lý lỗi của VuQuangEcom. Chỉ sau 5 ngày, shop đã được mở lại và hoạt động bình thường. Cảm ơn đội ngũ VuQuangEcom rất nhiều!"</p>
+                </div>
+                
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://cdn.jsdelivr.net/gh/hieu-nvdata/seo-image@main/2023/06/14/vietnamese-man-2.jpg" alt="Trần Đức Thành" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Trần Đức Thành</h4>
+                            <div class="text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Từ khi sử dụng dịch vụ treo live của VuQuangEcom, lưu lượng khách hàng vào shop tôi tăng đáng kể. Các bạn tư vấn rất nhiệt tình và chuyên nghiệp. Tôi sẽ tiếp tục sử dụng dịch vụ trong tương lai!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Câu Hỏi Thường Gặp</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Những thắc mắc phổ biến của khách hàng về dịch vụ của chúng tôi.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question">
+                        <div><i class="fas fa-question-circle mr-2 text-orange-500"></i> Dịch vụ buff đơn có an toàn cho shop của tôi không?</div>
+                        <i class="fas fa-chevron-down text-gray-500"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">Chúng tôi sử dụng các phương pháp an toàn, tuân thủ quy định của Shopee để đảm bảo shop của bạn không gặp rủi ro. Tất cả các đơn hàng đều được thực hiện bởi người dùng thật với tài khoản thật, có lịch sử mua hàng đa dạng.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question">
+                        <div><i class="fas fa-question-circle mr-2 text-orange-500"></i> Thời gian thực hiện dịch vụ buff đơn là bao lâu?</div>
+                        <i class="fas fa-chevron-down text-gray-500"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">Thời gian thực hiện phụ thuộc vào gói dịch vụ bạn chọn và số lượng sản phẩm cần buff. Thông thường từ 4-20 ngày tùy theo gói dịch vụ. Chi tiết cụ thể được ghi rõ trong mô tả từng gói.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question">
+                        <div><i class="fas fa-question-circle mr-2 text-orange-500"></i> Chi phí COD và phí ship là bao nhiêu?</div>
+                        <i class="fas fa-chevron-down text-gray-500"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">Chi phí COD và phí ship sẽ được tính toán dựa trên giá sản phẩm và địa điểm giao hàng. Chúng tôi sẽ tư vấn cụ thể cho từng trường hợp để đảm bảo chi phí tối ưu nhất cho bạn.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="faq-question">
+                        <div><i class="fas fa-question-circle mr-2 text-orange-500"></i> Làm thế nào để biết dịch vụ đã được thực hiện?</div>
+                        <i class="fas fa-chevron-down text-gray-500"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">Chúng tôi sẽ cập nhật tình hình thực hiện dịch vụ thường xuyên qua kênh liên lạc mà bạn đăng ký. Sau khi hoàn thành, bạn có thể kiểm tra trực tiếp trên tài khoản Shopee của mình để xác nhận kết quả.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="faq-question">
+                        <div><i class="fas fa-question-circle mr-2 text-orange-500"></i> Có cần phải cung cấp tài khoản Shopee cho đơn vị thực hiện dịch vụ không?</div>
+                        <i class="fas fa-chevron-down text-gray-500"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">Không, bạn không cần cung cấp tài khoản Shopee của mình. Chúng tôi chỉ cần link shop và các sản phẩm cần thực hiện dịch vụ.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                    <div class="faq-question">
+                        <div><i class="fas fa-question-circle mr-2 text-orange-500"></i> Dịch vụ lên Shopee Mall có đảm bảo 100% thành công không?</div>
+                        <i class="fas fa-chevron-down text-gray-500"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">Tỷ lệ thành công của dịch vụ lên Shopee Mall của chúng tôi là rất cao. Tuy nhiên, kết quả cuối cùng còn phụ thuộc vào nhiều yếu tố khác nhau. Chúng tôi sẽ hỗ trợ tối đa và cung cấp các giải pháp thay thế nếu việc lên Mall không thành công.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="700">
+                    <div class="faq-question">
+                        <div><i class="fas fa-question-circle mr-2 text-orange-500"></i> Nếu shop gặp vấn đề sau khi sử dụng dịch vụ thì sao?</div>
+                        <i class="fas fa-chevron-down text-gray-500"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-600">Chúng tôi cung cấp bảo hành 30 ngày cho tất cả các dịch vụ. Nếu shop của bạn gặp bất kỳ vấn đề nào liên quan đến dịch vụ đã sử dụng, chúng tôi sẽ hỗ trợ xử lý hoặc đền bù theo chính sách bảo hành.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Liên Hệ Với Chúng Tôi</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Bạn có thắc mắc hoặc cần tư vấn? Hãy liên hệ với chúng tôi ngay!</p>
+            </div>
+            
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0" data-aos="fade-right">
+                    <div class="bg-white p-6 rounded-lg shadow-sm h-full">
+                        <h3 class="text-2xl font-bold mb-6 primary-text">Thông Tin Liên Hệ</h3>
+                        
+                        <div class="contact-info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4 class="font-semibold">Điện Thoại</h4>
+                                <p>0386473757</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9ceae9ede9fdf2fbf9fff3f1dcfbf1fdf5f0b2fff3f1">[email&#160;protected]</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <i class="fas fa-globe"></i>
+                            <div>
+                                <h4 class="font-semibold">Website</h4>
+                                <p><a href="https://www.vuthanhquang.com/" target="_blank" class="text-blue-500 hover:underline">www.vuthanhquang.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4 class="font-semibold">Địa Chỉ</h4>
+                                <p>Hà Nội, Việt Nam</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold mb-4">Theo Dõi Chúng Tôi</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.facebook.com/vuquangecom" target="_blank" class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white hover:bg-blue-700 transition-all">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.youtube.com/@vuthanhquang-ecommerce" target="_blank" class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-white hover:bg-red-700 transition-all">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="https://www.tiktok.com/@vuquangecom" target="_blank" class="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white hover:bg-gray-800 transition-all">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="https://zalo.me/84386473757" target="_blank" class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white hover:bg-blue-600 transition-all">
+                                    <img src="https://cdn.jsdelivr.net/gh/hieu-nvdata/seo-image@main/2023/06/15/zalo-icon.png" alt="Zalo" width="20" height="20">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 px-4" data-aos="fade-left">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-2xl font-bold mb-6 primary-text">Gửi Yêu Cầu</h3>
+                        
+                        <form id="contact-form">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Họ và Tên</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Nhập họ và tên của bạn">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Nhập email của bạn">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Số Điện Thoại</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Nhập số điện thoại của bạn">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="service" class="block text-gray-700 font-medium mb-2">Dịch Vụ Quan Tâm</label>
+                                <select id="service" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+                                    <option value="">-- Chọn dịch vụ --</option>
+                                    <option value="buff-don">Buff Đơn & Đánh Giá</option>
+                                    <option value="mall">Lên Shopee Mall</option>
+                                    <option value="errors">Xử Lý Lỗi</option>
+                                    <option value="live">Treo Live</option>
+                                    <option value="build">Xây Dựng Shop</option>
+                                    <option value="decor">Trang Trí Shop</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Nội Dung</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Nhập nội dung yêu cầu của bạn"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary w-full scale-in">Gửi Yêu Cầu</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="py-16 primary-bg">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6" data-aos="fade-up">Tăng Doanh Số Bán Hàng Ngay Hôm Nay!</h2>
+            <p class="text-white text-lg mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">Hãy để chúng tôi giúp bạn phát triển shop Shopee với các dịch vụ chuyên nghiệp và hiệu quả.</p>
+            <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                <a href="#services" class="btn-accent scale-in">Xem Dịch Vụ</a>
+                <a href="#contact" class="bg-white text-orange-500 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition-all scale-in">Liên Hệ Ngay</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/3 mb-8 md:mb-0">
+                    <div class="text-2xl font-bold mb-4">
+                        <i class="fas fa-shopping-bag mr-2"></i>VuQuangEcom
+                    </div>
+                    <p class="mb-4 text-gray-400">Cung cấp các dịch vụ hỗ trợ bán hàng trên sàn thương mại điện tử Shopee với chất lượng cao và bảo hành dài hạn.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/vuquangecom" target="_blank" class="text-gray-400 hover:text-white transition-all">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@vuthanhquang-ecommerce" target="_blank" class="text-gray-400 hover:text-white transition-all">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@vuquangecom" target="_blank" class="text-gray-400 hover:text-white transition-all">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://zalo.me/84386473757" target="_blank" class="text-gray-400 hover:text-white transition-all">
+                            <img src="https://cdn.jsdelivr.net/gh/hieu-nvdata/seo-image@main/2023/06/15/zalo-icon.png" alt="Zalo" width="16" height="16" class="inline">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/3 mb-8 md:mb-0">
+                    <h3 class="text-lg font-semibold mb-4">Liên Kết Nhanh</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-all">Trang Chủ</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-all">Giới Thiệu</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-all">Dịch Vụ</a></li>
+                        <li><a href="#prices" class="text-gray-400 hover:text-white transition-all">Bảng Giá</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white transition-all">FAQ</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-all">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="w-full md:w-1/3">
+                    <h3 class="text-lg font-semibold mb-4">Thông Tin Liên Hệ</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-orange-500"></i>
+                            <span class="text-gray-400">Hà Nội, Việt Nam</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-orange-500"></i>
+                            <span class="text-gray-400">0386473757</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-orange-500"></i>
+                            <span class="text-gray-400"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5224272327333c3537313d3f12353f333b3e7c313d3f">[email&#160;protected]</a></span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-globe mt-1 mr-3 text-orange-500"></i>
+                            <a href="https://www.vuthanhquang.com/" target="_blank" class="text-gray-400 hover:text-white transition-all">www.vuthanhquang.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500">
+                <p>&copy; 2023 VuQuangEcom. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-orange-600 transition-all">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- JavaScript Libraries -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- JavaScript -->
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Show the first tab by default
+            document.querySelector('.pricing-content').classList.add('active');
+            document.querySelector('.pricing-tab').classList.add('active');
+            
+            // Initialize FAQ accordions
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isOpen = answer.style.display === 'block';
+                    
+                    // Close all other answers
+                    document.querySelectorAll('.faq-answer').forEach(item => {
+                        item.style.display = 'none';
+                    });
+                    document.querySelectorAll('.faq-question').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Toggle current answer
+                    if (!isOpen) {
+                        answer.style.display = 'block';
+                        question.classList.add('active');
+                    }
+                });
+            });
+            
+            // Tab functionality
+            const tabs = document.querySelectorAll('.pricing-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and content
+                    document.querySelectorAll('.pricing-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.pricing-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to current tab and content
+                    tab.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
+            
+            // Form Validation
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const service = document.getElementById('service').value;
+                const message = document.getElementById('message').value;
+                
+                if (!name || !email || !phone || !service || !message) {
+                    alert('Vui lòng điền đầy đủ thông tin!');
+                    return;
+                }
+                
+                alert('Cảm ơn bạn đã gửi yêu cầu! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.');
+                contactForm.reset();
+            });
+            
+            // Back to Top Button
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.opacity = '1';
+                } else {
+                    backToTopButton.style.opacity = '0';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Function to switch tab from other sections
+            window.showTab = function(tabId) {
+                const tabToActivate = document.querySelector(`[data-tab="${tabId}"]`);
+                if (tabToActivate) {
+                    tabToActivate.click();
+                    
+                    // Scroll to prices section
+                    document.getElementById('prices').scrollIntoView({ behavior: 'smooth' });
+                }
+            };
+        });
+    </script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDg5XjOrWzcs8og%2FlIIT%2BK23i%2BH5Qs6zLMrtUkNNJaIaw11pOyTVEOpOEWCFrj8XURDkvDsipdQGXHPe2MJESaknSENbuAU0%2FnG4PvHmmaXuzsOkr4EVUjtLRu8hWEziOBwMAIOxztLtySPk%2FfP6XhkTEzn4eIdJDH8SVdU0uuVbaOfKCJcwEndQ7qdssciVGTwHFNvuq%2FmUQE755m81%2Bs2AtXjv3jiQo7h1D2LwgkI1KBt3qWUC6CRD4YfFQuJNk2qGhCzAnSe86ts2zOJHQ0N8GQNtppz90iSVTq0bv%2BvvRqY1Gc0igGXdE864%2BULLEunZ80la2rpWeWtjjJddv7dYKO6suQNlSwXURVLXpjwamHW7m7C9q6vi5rV6E2eFO7a1W2i54mVQ%2By55jExLBBRnvOrq4f5egJd3KKW%2Fo4%2FlXfeSKuww%2FcoDGov4fccM%2BMO14irAJQrEo%2F78ZgUI%2FFq7OZEMeLZ9s24POVIhObsbFp3ie79dsJAlYAxkarBWV4jlGnu%2FOtLbwrRV%2BNF%2B%2FNaUzbvHC85yVugabIsU9IRb3oRSGPSB4BlK3OOUkJFBUP1FNjXDneI71BxyYUV3QRuzgGtyCi0RdWzxEgWiide1H";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDg5XjOrWzcs8og/lIIT+K23i+H5Qs6zLMrtUkNNJaIaw11pOyTVEOpOEWCFrj8XURDkvDsipdQGXHPe2MJESaknSENbuAU0/nG4PvHmmaXuzsOkr4EVUjtLRu8hWEziOBwMAIOxztLtySPk/fP6XhkTEzn4eIdJDH8SVdU0uuVbaOfKCJcwEndQ7qdssciVGTwHFNvuq/mUQE755m81+s2AtXjv3jiQo7h1D2LwgkI1KBt3qWUC6CRD4YfFQuJNk2qGhCzAnSe86ts2zOJHQ0N8GQNtppz90iSVTq0bv+vvRqY1Gc0igGXdE864+ULLEunZ80la2rpWeWtjjJddv7dYKO6suQNlSwXURVLXpjwamHW7m7C9q6vi5rV6E2eFO7a1W2i54mVQ+y55jExLBBRnvOrq4f5egJd3KKW/o4/lXfeSKuww/coDGov4fccM+MO14irAJQrEo/78ZgUI/Fq7OZEMeLZ9s24POVIhObsbFp3ie79dsJAlYAxkarBWV4jlGnu/OtLbwrRV+NF+/NaUzbvHC85yVugabIsU9IRb3oRSGPSB4BlK3OOUkJFBUP1FNjXDneI71BxyYUV3QRuzgGtyCi0RdWzxEgWiide1H";
+    </script>
+    
